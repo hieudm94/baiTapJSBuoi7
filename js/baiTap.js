@@ -55,37 +55,42 @@ document.getElementById("soNhoNhat").onclick = ketQuaSoNhoNhat;
 //! TÌM SỐ DƯƠNG NHỎ NHẤT
 function ketQuaSoDuongNhoNhat() {
     var mangPhu = [];
+
     for (var i = 0; i < soDuocThem.length; i++) {
         if (soDuocThem[i] > 0) {
             mangPhu.push(soDuocThem[i]);
         }
     }
 
-    var minDuong = mangPhu[0];
-    for (var k = 0; k < mangPhu.length; k++) {
-        if (mangPhu[k] < minDuong) {
-            minDuong = mangPhu[k];
+    if (mangPhu.length == 0) {
+        document.getElementById("txtResultSoDuongNhoNhat").innerHTML = "Không có số dương";
+    } else {
+        var minDuong = mangPhu[0];
+        for (var k = 0; k < mangPhu.length; k++) {
+            if (mangPhu[k] < minDuong) {
+                minDuong = mangPhu[k];
+            }
         }
+        document.getElementById("txtResultSoDuongNhoNhat").innerHTML = "Số dương nhỏ nhất là:  " + minDuong;
     }
-    document.getElementById("txtResultSoDuongNhoNhat").innerHTML = "Số dương nhỏ nhất là:  " + minDuong;
 }
 document.getElementById("soDuongNhoNhat").onclick = ketQuaSoDuongNhoNhat;
 
 //! TÌM SỐ CHẴN CUỔI CÙNG
-function ketquaSoChanCC(){
+function ketquaSoChanCC() {
     var mangTam = [];
 
-    for(var i = 0 ; i < soDuocThem.length; i++){
-        if(soDuocThem[i] % 2 == 0){
+    for (var i = 0; i < soDuocThem.length; i++) {
+        if (soDuocThem[i] % 2 == 0) {
             mangTam.push(soDuocThem[i]);
         }
     }
     console.log(mangTam);
-    console.log(mangTam.length-1);
+    console.log(mangTam.length - 1);
     document.getElementById("txtResultSoChanCuoiCung").innerHTML = "Số chẵn cuối cùng:  " + mangTam[mangTam.length - 1];
-    
 
-} 
+
+}
 document.getElementById("soChanCuoiCung").onclick = ketquaSoChanCC;
 
 
